@@ -12,14 +12,14 @@ bundle exec rake
 ```
 
 ```ruby
-stub().foo
-stub().foo
+stub(object).foo
+stub(MyClas).foo
 
-stub().foo {}
-stub(0.foo {}
+stub(object).foo { 'bar' }
+stub(MyClass).foo { 'bar' }
 
-stub().foo() {}
-stub().foo() {}
+stub(object).foo(1, 2) { 'bar' }
+stub(MyClass).foo(1, 2) { 'bar' }
 
 mock(object).foo
 mock(MyClass).foo
