@@ -12,6 +12,14 @@ bundle exec rake
 ```
 
 ```ruby
+stub().foo
+stub().foo
+
+stub().foo {}
+stub(0.foo {}
+
+stub().foo() {}
+stub().foo() {}
 
 mock(object).foo
 mock(MyClass).foo
