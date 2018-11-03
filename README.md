@@ -12,6 +12,40 @@ bundle exec rake
 ```
 
 ```ruby
+
+mock(object).foo
+mock(MyClass).foo
+
+mock(object).foo { 'bar'}
+mock(MyClass).foo { 'bar' }
+
+mock(object).foo(1, 2) { 'bar' }
+mock(MyClass).foo(1, 2) { 'bar' }
+
+stub(object).foo
+expect(object).to have_received.foo
+
+stub(object).foo
+assert_received(object) {|o| o.foo }
+
+stub.proxy(object).foo {|str| str.upcase}
+stub.proxy(MyClass).foo {|str| str.upcase }
+
+mock.proxy(obect).foo {|str| str.upcase }
+mock.proxy(MyClass).foo {|str| str.upcase }
+
+stub.proxy(MyClass).new {|obj| stub(obj).foo; obj }
+mock.proxy(MyClass).new {|obj| stub(obj).foo; obj }
+
+any_instance_of(MyClass) do |klass|
+  stub(klass).foo { 'bar' }
+end
+
+stub.proxy(MyClass).new do |obj|
+  stub().foo { 'bar' }
+end
+
+
 rquire 'your/test/framework'
 require 'rr'
 
